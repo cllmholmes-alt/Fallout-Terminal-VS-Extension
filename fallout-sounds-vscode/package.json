@@ -1,0 +1,75 @@
+{
+  "name": "fallout-terminal-sounds",
+  "displayName": "Fallout Terminal Sounds",
+  "description": "Adds authentic Fallout terminal sounds to VS Code typing experience",
+  "version": "1.0.0",
+  "publisher": "fallout-sounds",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackisgames/Fallout-Terminal-VS-Extension.git"
+  },
+  "keywords": [
+    "fallout",
+    "terminal",
+    "sounds",
+    "audio",
+    "typing",
+    "theme"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fallout-sounds.enable",
+        "title": "Enable Fallout Terminal Sounds"
+      },
+      {
+        "command": "fallout-sounds.disable",
+        "title": "Disable Fallout Terminal Sounds"
+      }
+    ],
+    "configuration": {
+      "title": "Fallout Terminal Sounds",
+      "properties": {
+        "falloutSounds.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable Fallout terminal sounds"
+        },
+        "falloutSounds.volume": {
+          "type": "number",
+          "default": 0.5,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Volume level for sounds (0.0 to 1.0)"
+        },
+        "falloutSounds.keystrokeDelay": {
+          "type": "number",
+          "default": 50,
+          "minimum": 10,
+          "maximum": 500,
+          "description": "Minimum delay between keystroke sounds in milliseconds"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}
